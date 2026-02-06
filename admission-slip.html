@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; object-src 'none'; base-uri 'self';">
+    <title>BETCI Admission Slip</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Main CSS Files -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="assets/css/application-form.css" rel="stylesheet">
+    
+    <!-- Extension Error Suppression -->
+    <script>
+        // Complete suppression of chrome extension related console errors
+        (function() {
+          'use strict';
+          
+          // Store original console methods
+          const originalError = console.error;
+          const originalWarn = console.warn;
+          const originalLog = console.log;
+          
+          // Override console.error
+          console.error = function(...args) {
+            const message = String(args[0] || '');
+            
+            // Block all extension-related errors
+            if (message.includes('chrome-extension://') || 
+                message.includes('Extension context invalidated') ||
+                message.includes('web_accessible_resources') ||
+                message.includes('lockdown-install') ||
+                message.includes('SES Removing') ||
+                message.includes('ERR_FAILED') ||
+                message.includes('dngmlblcodfobpdpecaadgfbcggfjfnm') ||
+                args.some(arg => String(arg).includes('chrome-extension://'))) {
+              return; // Completely suppress these
+            }
+            
+            originalError.apply(console, args);
+          };
+          
+          // Override console.warn
+          console.warn = function(...args) {
+            const message = String(args[0] || '');
+            
+            if (message.includes('chrome-extension://') || 
+                message.includes('web_accessible_resources') ||
+                message.includes('dngmlblcodfobpdpecaadgfbcggfjfnm') ||
+                args.some(arg => String(arg).includes('chrome-extension://'))) {
+              return; // Completely suppress these
+            }
+            
+            originalWarn.apply(console, args);
+          };
+          
+          // Override console.log to catch any extension logs
+          console.log = function(...args) {
+            const message = String(args[0] || '');
+            
+            if (message.includes('chrome-extension://') || 
+                message.includes('dngmlblcodfobpdpecaadgfbcggfjfnm') ||
+                args.some(arg => String(arg).includes('chrome-extension://'))) {
+              return; // Completely suppress these
+            }
+            
+            originalLog.apply(console, args);
+          };
+          
+          // Block all extension-related errors at the window level
+          window.addEventListener('error', function(e) {
+            if (e.filename && (e.filename.includes('chrome-extension://') || 
+                e.filename.includes('dngmlblcodfobpdpecaadgfbcggfjfnm'))) {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+              return false;
+            }
+          }, true);
+          
+          // Block unhandled promise rejections from extensions
+          window.addEventListener('unhandledrejection', function(e) {
+            if (e.reason && e.reason.message && 
+                (e.reason.message.includes('chrome-extension://') ||
+                 e.reason.message.includes('dngmlblcodfobpdpecaadgfbcggfjfnm'))) {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+              return false;
+            }
+          }, true);
+          
+          // Block resource loading errors from extensions
+          window.addEventListener('load', function() {
+            // Override fetch to block extension requests
+            const originalFetch = window.fetch;
+            window.fetch = function(...args) {
+              const url = args[0];
+              if (typeof url === 'string' && url.includes('chrome-extension://')) {
+                return Promise.reject(new Error('Extension request blocked'));
+              }
+              return originalFetch.apply(this, args);
+            };
+          });
+          
+          // Prevent extension script injection
+          const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              mutation.addedNodes.forEach(function(node) {
+                if (node.nodeType === 1 && node.tagName === 'SCRIPT') {
+                  if (node.src && node.src.includes('chrome-extension://')) {
+                    node.remove();
+                  }
+                }
+              });
+            });
+          });
+          
+          observer.observe(document.documentElement, {
+            childList: true,
+            subtree: true
+          });
+          
+        })();
+    </script>
+</head>
+<body class="admission-page">
+    <main class="main">
+        <!-- Back Button -->
+        <div class="back-button-container">
+            <a href="dashboard-fixed.html" class="back-button">
+                <i class="bi bi-arrow-left"></i> BACK TO DASHBOARD
+            </a>
+        </div>
+        
+        <!-- Admission Slip Section -->
+        <section class="section" style="padding-top: 20px;">
+            <div class="container">
+                <!-- Form Header -->
+                <div class="form-page-header orange-header">
+                    <div class="header-logos">
+                        <img src="assets/img/logo.png" alt="BETCI Logo" class="header-logo">
+                        <img src="assets/img/TESDALOGONOBG.png" alt="TESDA Logo" class="header-logo">
+                    </div>
+                    <div class="header-content">
+                        <h1>ADMISSION SLIP</h1>
+                        <h2>BUILDERS EDUCATION & TRAINING CENTER INC.</h2>
+                        <p>TESDA Accredited Heavy Equipment Training Programs</p>
+                    </div>
+                </div>
+                
+                
+                <!-- Welcome Message -->
+                <div class="welcome-message">
+                    <h2 class="welcome-title">Generate Your Admission Slip <span class="title-indicator document-indicator"></span></h2>
+                    <p class="welcome-text">You're almost ready for your examination! Complete this form to generate your official admission slip.</p>
+                    <div class="welcome-stats">
+                        <div class="welcome-stat">
+                            <span class="welcome-stat-number approved-indicator"></span>
+                            <span class="welcome-stat-label">Application Approved</span>
+                        </div>
+                        <div class="welcome-stat">
+                            <span class="welcome-stat-number schedule-indicator"></span>
+                            <span class="welcome-stat-label">Schedule Exam</span>
+                        </div>
+                        <div class="welcome-stat">
+                            <span class="welcome-stat-number certificate-indicator"></span>
+                            <span class="welcome-stat-label">Get Certified</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admission-slip-container">
+                    <!-- Admission Slip Header -->
+                    <div class="admission-header">
+                        <div class="admission-logos">
+                            <img src="assets/img/logo.png" alt="BETCI Logo" class="admission-logo">
+                            <img src="assets/img/TESDALOGONOBG.png" alt="TESDA Logo" class="admission-logo">
+                        </div>
+                        <div class="admission-title">
+                            <h2>ADMISSION SLIP</h2>
+                            <h3>BUILDERS EDUCATION & TRAINING CENTER INC.</h3>
+                            <p class="tagline">TESDA Accredited Heavy Equipment Training Programs</p>
+                            <div class="form-info">
+                                <span class="form-number">BETCI-AS-2024</span>
+                                <span class="form-rev">Rev. 01 - 2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admission Form -->
+                    <form class="admission-form" id="admissionForm">
+                        <!-- Reference Number Section -->
+                        <section class="form-section form-section-friendly">
+                            <div class="section-icon admission-icon"></div>
+                            <h3 class="section-header">Admission Information</h3>
+                            
+                            <div class="help-tip">
+                                <div class="help-tip-title">Exam Details</div>
+                                <div class="help-tip-text">Please fill in your examination schedule details. Make sure to double-check the date and time!</div>
+                            </div>
+                            
+                            <div class="admission-reference-section">
+                                <div class="form-group">
+                                    <label for="admissionReference">ADMISSION REFERENCE NUMBER:</label>
+                                    <div class="admission-reference-inputs">
+                                        <div class="admission-reference-input-group">
+                                            <input type="text" class="admission-ref-input" placeholder="A" maxlength="1" title="Admission">
+                                            <small>Admission</small>
+                                        </div>
+                                        <div class="admission-reference-input-group">
+                                            <input type="text" class="admission-ref-input" placeholder="YY" maxlength="2" title="Year">
+                                            <small>Year</small>
+                                        </div>
+                                        <div class="admission-reference-input-group">
+                                            <input type="text" class="admission-ref-input" placeholder="RR" maxlength="2" title="Region">
+                                            <small>Region</small>
+                                        </div>
+                                        <div class="admission-reference-input-group">
+                                            <input type="text" class="admission-ref-input" placeholder="PP" maxlength="2" title="Province">
+                                            <small>Province</small>
+                                        </div>
+                                        <div class="admission-reference-input-group">
+                                            <input type="text" class="admission-ref-input" placeholder="NNNN" maxlength="4" title="Number">
+                                            <small>Number</small>
+                                        </div>
+                                        <div class="admission-reference-input-group">
+                                            <input type="text" class="admission-ref-input" placeholder="SS" maxlength="2" title="Series">
+                                            <small>Series</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="applicantName">Applicant Name:</label>
+                                    <div class="admission-value" id="applicantName">To be filled from application</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="courseTitle">Course Title:</label>
+                                    <div class="admission-value" id="courseTitle">To be filled from application</div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="examDate">Examination Date:</label>
+                                    <input type="date" id="examDate" name="examDate" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="examTime">Examination Time:</label>
+                                    <input type="time" id="examTime" name="examTime" class="form-input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="examVenue">Examination Venue:</label>
+                                    <textarea id="examVenue" name="examVenue" class="form-textarea" rows="2" required 
+                                        placeholder="Enter examination venue address"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="examInstructions">Special Instructions:</label>
+                                    <textarea id="examInstructions" name="examInstructions" class="form-textarea" rows="2" 
+                                        placeholder="Any special instructions for the examination"></textarea>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Applicant Picture Section -->
+                        <section class="form-section">
+                            <h3 class="section-header">Applicant Information</h3>
+                            
+                            <div class="admission-picture">
+                                <label>APPLICANT PICTURE</label>
+                                <div class="picture-container">
+                                    <div class="picture-placeholder" id="admissionPicturePlaceholder">
+                                        <i class="bi bi-person-circle" style="font-size: 48px;"></i>
+                                        <span>Click To Insert Picture</span>
+                                        <small>passport size, recent photo</small>
+                                    </div>
+                                    <input type="file" id="admissionPicture" name="admissionPicture" accept="image/*" style="display: none;" onchange="handleAdmissionPictureUpload(event)">
+                                    <img id="admissionPicturePreview" style="display: none;">
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Important Notes Section -->
+                        <section class="form-section">
+                            <div class="admission-note">
+                                <h4><i class="bi bi-exclamation-triangle"></i> IMPORTANT REMINDERS:</h4>
+                                <ul>
+                                    <li>Bring this admission slip on the day of examination</li>
+                                    <li>Arrive at least 30 minutes before the scheduled examination time</li>
+                                    <li>Bring valid government-issued ID for verification</li>
+                                    <li>Bring writing materials (pen, pencil, eraser)</li>
+                                    <li>Late examinees will not be accommodated</li>
+                                    <li>Mobile phones and electronic devices are not allowed during examination</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- Signatures Section -->
+                        <section class="form-section">
+                            <div class="admission-signatures">
+                                <div class="signature-group">
+                                    <div class="signature-line"></div>
+                                    <label>Applicant's Signature</label>
+                                    <small>Date: _______________</small>
+                                </div>
+                                <div class="signature-group">
+                                    <div class="signature-line"></div>
+                                    <label>Authorized Personnel</label>
+                                    <small>Date: _______________</small>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Friendly Actions -->
+                        <div class="nav-friendly">
+                            <button type="button" class="nav-btn-friendly" onclick="window.history.back()">
+                                ← Back
+                            </button>
+                            <div class="nav-step-info">
+                                <span>Ready to generate! <span class="ready-indicator"></span></span>
+                            </div>
+                            <button type="button" class="nav-btn-friendly" onclick="generateAdmissionSlip()">
+                                <span class="btn-icon document-icon"></span> Generate Slip
+                            </button>
+                            <button type="button" class="nav-btn-friendly" onclick="printAdmissionSlip()">
+                                <span class="btn-icon print-icon"></span> Print Slip
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Main JS Files -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/script.js"></script>
+    
+    <script>
+        // Admission slip specific JavaScript
+        function handleAdmissionPictureUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('admissionPicturePreview');
+                    const placeholder = document.getElementById('admissionPicturePlaceholder');
+                    
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    placeholder.style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function generateAdmissionSlip() {
+            // Validate required fields
+            const examDate = document.getElementById('examDate').value;
+            const examTime = document.getElementById('examTime').value;
+            const examVenue = document.getElementById('examVenue').value;
+
+            if (!examDate || !examTime || !examVenue) {
+                alert('Please fill in all required fields (Examination Date, Time, and Venue)');
+                return;
+            }
+
+            // Generate admission slip logic here
+            alert('Admission slip generated successfully!');
+        }
+
+        function printAdmissionSlip() {
+            window.print();
+        }
+
+        // Load applicant data from localStorage if available
+        document.addEventListener('DOMContentLoaded', function() {
+            const applicantData = localStorage.getItem('applicationData');
+            if (applicantData) {
+                const data = JSON.parse(applicantData);
+                document.getElementById('applicantName').textContent = `${data.firstName || ''} ${data.lastName || ''}`.trim() || 'To be filled from application';
+                document.getElementById('courseTitle').textContent = data.course || 'To be filled from application';
+            }
+        });
+    </script>
+</body>
+</html>
