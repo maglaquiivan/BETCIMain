@@ -2408,26 +2408,26 @@ body.application-page::before {
     font-size: 36px;
     font-weight: 900;
     margin: 0 0 15px 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: none;
     letter-spacing: 3px;
-    color: white;
+    color: #333333;
 }
 
 .orange-header h2 {
     font-size: 20px;
     font-weight: 700;
     margin: 0 0 10px 0;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    color: #333333;
+    text-shadow: none;
 }
 
 .orange-header p {
     font-size: 16px;
     margin: 0;
-    opacity: 0.95;
+    opacity: 1;
     font-weight: 500;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    color: #555555;
+    text-shadow: none;
 }
 
 /* Form Page Header - Keep original for other uses */
@@ -3204,7 +3204,7 @@ body {
 }
 
 .step-progress-fill {
-    background: linear-gradient(90deg, var(--form-primary), var(--form-secondary));
+    background: #E67E22;
     height: 100%;
     border-radius: 4px;
     transition: width 0.5s ease;
@@ -4229,7 +4229,7 @@ body {
 
 .step-progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #E67E22 0%, #F4C430 100%);
+    background: #E67E22;
     border-radius: 4px;
     transition: width 0.8s ease;
     position: relative;
