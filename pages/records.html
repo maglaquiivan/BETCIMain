@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Records - BETCI Admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">B</div>
+                <div>
+                    <div class="sidebar-title">BETCI</div>
+                    <div class="sidebar-subtitle">Admin</div>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html" class="sidebar-menu-item"><i class="bi bi-speedometer2"></i><span>Dashboard</span></a></li>
+                <li><a href="trainees.html" class="sidebar-menu-item"><i class="bi bi-people"></i><span>Trainees</span></a></li>
+                <li>
+                    <a href="accounts.html" class="sidebar-menu-item"><i class="bi bi-person-badge"></i><span>Accounts</span></a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-submenu-item">Manage Accounts</a></li>
+                        <li><a href="#" class="sidebar-submenu-item">User Roles</a></li>
+                        <li><a href="#" class="sidebar-submenu-item">Permissions</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="training-catalog.html" class="sidebar-menu-item"><i class="bi bi-book"></i><span>Training Catalog</span></a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-submenu-item">Courses</a></li>
+                        <li><a href="#" class="sidebar-submenu-item">Competencies</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="appointments.html" class="sidebar-menu-item"><i class="bi bi-calendar-check"></i><span>Appointments</span></a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-submenu-item">Requests</a></li>
+                        <li><a href="#" class="sidebar-submenu-item">Schedule</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-menu-item active"><i class="bi bi-file-earmark"></i><span>Records</span></a>
+                    <ul class="sidebar-submenu active">
+                        <li><a href="#" class="sidebar-submenu-item" data-section="enrollment">Enrollment</a></li>
+                        <li><a href="#" class="sidebar-submenu-item" data-section="application">Application</a></li>
+                        <li><a href="#" class="sidebar-submenu-item" data-section="admission">Admission</a></li>
+                        <li><a href="#" class="sidebar-submenu-item" data-section="attendance">Attendance</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-menu-item"><i class="bi bi-gear"></i><span>Settings</span></a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-submenu-item">Manage Profile</a></li>
+                        <li><a href="#" class="sidebar-submenu-item">Change Password</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <div class="main-content">
+            <nav class="navbar">
+                <div class="navbar-left">
+                    <h1 class="page-title">Records</h1>
+                </div>
+                <div class="navbar-right">
+                    <div class="profile-dropdown">
+                        <button class="profile-btn">
+                            <div class="profile-avatar">A</div>
+                            <span>Admin</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="profile-menu">
+                            <a href="#" class="profile-menu-item" data-action="profile"><i class="bi bi-person"></i><span>My Profile</span></a>
+                            <a href="#" class="profile-menu-item"><i class="bi bi-gear"></i><span>Settings</span></a>
+                            <div class="profile-menu-divider"></div>
+                            <a href="#" class="profile-menu-item" data-action="logout"><i class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="content">
+                <div class="breadcrumb">
+                    <a href="dashboard.html" class="breadcrumb-item">Dashboard</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="breadcrumb-item active">Records</span>
+                </div>
+
+                <section id="enrollment" class="section active" data-title="Enrollment Records">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Enrollment Records</h2>
+                            <p class="card-subtitle">View trainee enrollments</p>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Enrollment ID</th>
+                                        <th>Trainee</th>
+                                        <th>Course</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#ENR001</td>
+                                        <td>John Doe</td>
+                                        <td>Forklift Operation</td>
+                                        <td>Jan 15, 2024</td>
+                                        <td><span class="badge badge-success">Enrolled</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="application" class="section" data-title="Applications">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Application Records</h2>
+                            <p class="card-subtitle">View trainee applications</p>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Application ID</th>
+                                        <th>Trainee</th>
+                                        <th>Course</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#APP001</td>
+                                        <td>Jane Smith</td>
+                                        <td>Bulldozer Operation</td>
+                                        <td>Jan 14, 2024</td>
+                                        <td><span class="badge badge-warning">Under Review</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="admission" class="section" data-title="Admission Records">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Admission Records</h2>
+                            <p class="card-subtitle">View admission slips and records</p>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Admission ID</th>
+                                        <th>Trainee</th>
+                                        <th>Course</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#ADM001</td>
+                                        <td>Mike Johnson</td>
+                                        <td>Safety Training</td>
+                                        <td>Jan 13, 2024</td>
+                                        <td><span class="badge badge-success">Admitted</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="attendance" class="section" data-title="Attendance Records">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Attendance Records</h2>
+                            <p class="card-subtitle">View trainee attendance</p>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Trainee</th>
+                                        <th>Course</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Hours</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John Doe</td>
+                                        <td>Forklift Operation</td>
+                                        <td>Jan 15, 2024</td>
+                                        <td><span class="badge badge-success">Present</span></td>
+                                        <td>8 hours</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/admin-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainees - BETCI Admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">B</div>
+                <div>
+                    <div class="sidebar-title">BETCI</div>
+                    <div class="sidebar-subtitle">Admin</div>
+                </div>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="dashboard.html" class="sidebar-menu-item" data-section="dashboard">
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-menu-item active" data-section="trainees">
+                        <i class="bi bi-people"></i>
+                        <span>Trainees</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-menu-item">
+                        <i class="bi bi-person-badge"></i>
+                        <span>Accounts</span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-submenu-item" data-section="manage-accounts">Manage Accounts</a></li>
+                        <li><a href="#" class="sidebar-submenu-item" data-section="user-roles">User Roles</a></li>
+                        <li><a href="#" class="sidebar-submenu-item" data-section="permissions">Permissions</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-menu-item">
+                        <i class="bi bi-book"></i>
+                        <span>Training Catalog</span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-submenu-item" data-section="courses">Courses</a></li>
+                        <li><a href="#" class="sidebar-submenu-item" data-section="competencies">Competencies</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-menu-item">
+                        <i class="bi bi-calendar-check"></i>
+                        <span>Appointments</span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-submenu-item" data-section="requests">Requests</a></li>
+                        <li><a href="#" class="sidebar-submenu-item" data-section="schedule">Schedule</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-menu-item">
+                        <i class="bi bi-file-earmark"></i>
+                        <span>Records</span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-submenu-item" data-section="enrollment">Enrollment</a></li>
+                        <li><a href="#" class="sidebar-submenu-item" data-section="application">Application</a></li>
+                        <li><a href="#" class="sidebar-submenu-item" data-section="admission">Admission</a></li>
+                        <li><a href="#" class="sidebar-submenu-item" data-section="attendance">Attendance</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-menu-item">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-submenu-item" data-section="manage-profile">Manage Profile</a></li>
+                        <li><a href="#" class="sidebar-submenu-item" data-section="change-password">Change Password</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- NAVBAR -->
+            <nav class="navbar">
+                <div class="navbar-left">
+                    <h1 class="page-title">Trainees</h1>
+                </div>
+                <div class="navbar-right">
+                    <div class="profile-dropdown">
+                        <button class="profile-btn">
+                            <div class="profile-avatar">A</div>
+                            <span>Admin</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="profile-menu">
+                            <a href="#" class="profile-menu-item" data-action="profile">
+                                <i class="bi bi-person"></i>
+                                <span>My Profile</span>
+                            </a>
+                            <a href="#" class="profile-menu-item">
+                                <i class="bi bi-gear"></i>
+                                <span>Settings</span>
+                            </a>
+                            <div class="profile-menu-divider"></div>
+                            <a href="#" class="profile-menu-item" data-action="logout">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CONTENT -->
+            <div class="content">
+                <div class="breadcrumb">
+                    <a href="dashboard.html" class="breadcrumb-item">Dashboard</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="breadcrumb-item active">Trainees</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h2 class="card-title">Trainees Management</h2>
+                            <p class="card-subtitle">Manage all trainees in the system</p>
+                        </div>
+                        <button class="btn btn-primary">
+                            <i class="bi bi-plus"></i> Add Trainee
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Course</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#T001</td>
+                                    <td>John Doe</td>
+                                    <td>john@example.com</td>
+                                    <td>Forklift Operation</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-secondary">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#T002</td>
+                                    <td>Jane Smith</td>
+                                    <td>jane@example.com</td>
+                                    <td>Bulldozer Operation</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-secondary">Edit</button>
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/admin-dashboard.js"></script>
+</body>
+</html>

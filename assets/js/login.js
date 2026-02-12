@@ -37,9 +37,19 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      // Here you would typically send the login data to your backend
-      console.log('Login attempt:', { role, email, password });
-      alert('Login functionality would be implemented here');
+      // Handle different roles
+      if (role === 'student') {
+        console.log('Student login:', { email, password });
+        alert('Redirecting to trainee dashboard...');
+        window.location.href = '../trainee/dashboard.html';
+      } else if (role === 'instructor') {
+        console.log('Instructor login:', { email, password });
+        alert('Instructor dashboard coming soon!');
+      } else if (role === 'admin') {
+        console.log('Admin login from role dropdown:', { email, password });
+        alert('Redirecting to admin dashboard...');
+        window.location.href = '../admin/dashboard.html';
+      }
     });
   }
 

@@ -47,22 +47,13 @@
     <title>BETCI - Trainee Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/css/dashboard.css" rel="stylesheet">
+    <link href="../assets/css/dashboard.css" rel="stylesheet">
     
     <!-- Extension Error Suppression -->
     <script>
         // Complete suppression of chrome extension related console errors
         (function() {
           'use strict';
-          dashboard-fixed.html:2 Denying load of chrome-extension://dngmlblcodfobpdpecaadgfbcggfjfnm/src/extension/inpage/index.js. Resources must be listed in the web_accessible_resources manifest key in order to be loaded by pages outside the extension.
-lockdown-install.js:1 SES Removing unpermitted intrinsics
-index.js:1  GET chrome-extension://invalid/ net::ERR_FAILED
-(anonymous) @ index.js:1
-dashboard-fixed.html:65 Dashboard JavaScript loaded and ready!
-dashboard-fixed.html:65 Dashboard loaded successfully!
-dashboard-fixed.html:65 Showing section: dashboard
-[Violation] Forced reflow while executing JavaScript took 48ms
-
           // Store original console methods
           const originalError = console.error;
           const originalWarn = console.warn;
@@ -167,6 +158,11 @@ dashboard-fixed.html:65 Showing section: dashboard
             childList: true,
             subtree: true
           });
+        })();
+    </script>
+            childList: true,
+            subtree: true
+          });
           
         })();
     </script>
@@ -176,11 +172,11 @@ dashboard-fixed.html:65 Showing section: dashboard
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo-container">
-                <img src="assets/img/logo.png" alt="BETCI Logo" class="sidebar-logo">
+                <img src="../assets/img/logo.png" alt="BETCI Logo" class="sidebar-logo">
                 <div class="logo-text">
                     <h3>BETCI</h3>
+                    <p>Trainee Dashboard</p>
                 </div>
-                <p>Trainee Dashboard</p>
             </div>
             <button class="sidebar-toggle" id="sidebarToggle">
                 <i class="bi bi-list"></i>
@@ -222,20 +218,15 @@ dashboard-fixed.html:65 Showing section: dashboard
         <!-- Top Header -->
         <header class="top-header">
             <div class="header-left">
-                <button class="menu-toggle" id="menuToggle">
-                    <i class="bi bi-list"></i>
-                </button>
                 <div class="search-container">
                     <i class="bi bi-search"></i>
                     <input type="text" placeholder="Search..." class="search-input">
                 </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="bi bi-list"></i>
+                </button>
             </div>
             <div class="header-right">
-                <div class="theme-toggle-container">
-                    <button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()">
-                        <i class="bi bi-moon-fill" id="themeIcon"></i>
-                    </button>
-                </div>
                 <div class="user-profile" id="userProfile">
                     <div class="user-avatar">
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -269,13 +260,13 @@ dashboard-fixed.html:65 Showing section: dashboard
                         <div class="dropdown-divider"></div>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#" onclick="showSection('settings')">
+                                <a href="manage-profile.html">
                                     <i class="bi bi-person"></i>
                                     <span>My Profile</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" onclick="showSection('settings')">
+                                <a href="manage-profile.html">
                                     <i class="bi bi-gear"></i>
                                     <span>Settings</span>
                                 </a>
@@ -290,18 +281,7 @@ dashboard-fixed.html:65 Showing section: dashboard
                                     </label>
                                 </div>
                             </li>
-                            <li>
-                                <a href="#" onclick="showSection('assessment')">
-                                    <i class="bi bi-file-earmark-text"></i>
-                                    <span>My Applications</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" onclick="downloadCertificates()">
-                                    <i class="bi bi-download"></i>
-                                    <span>Download Certificates</span>
-                                </a>
-                            </li>
+                          
                         </ul>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown-footer">
@@ -380,7 +360,7 @@ dashboard-fixed.html:65 Showing section: dashboard
                     <!-- Course Card 1 -->
                     <div class="course-card">
                         <div class="course-image">
-                            <img src="assets/img/fork.png" alt="Forklift Operation" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjRjRDNDMwIiBvcGFjaXR5PSIwLjIiLz4KPHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI3MCIgeT0iNDUiPgo8cGF0aCBkPSJNMTAgMjBIMTVWNDBIMTBWMjBaIiBmaWxsPSIjRTY3RTIyIi8+CjxwYXRoIGQ9Ik0yMCAyMEg1MFY0MEgyMFYyMFoiIGZpbGw9IiNFNjdFMjIiLz4KPC9zdmc+Cjwvc3ZnPgo='">
+                            <img src="../assets/img/fork.png" alt="Forklift Operation" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjRjRDNDMwIiBvcGFjaXR5PSIwLjIiLz4KPHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI3MCIgeT0iNDUiPgo8cGF0aCBkPSJNMTAgMjBIMTVWNDBIMTBWMjBaIiBmaWxsPSIjRTY3RTIyIi8+CjxwYXRoIGQ9Ik0yMCAyMEg1MFY0MEgyMFYyMFoiIGZpbGw9IiNFNjdFMjIiLz4KPC9zdmc+Cjwvc3ZnPgo='">
                             <div class="course-badge new">NEW</div>
                         </div>
                         <div class="course-content">
@@ -403,7 +383,7 @@ dashboard-fixed.html:65 Showing section: dashboard
                     <!-- Course Card 2 -->
                     <div class="course-card">
                         <div class="course-image">
-                            <img src="assets/img/bulldozer.png" alt="Bulldozer Operation" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjRjRDNDMwIiBvcGFjaXR5PSIwLjIiLz4KPHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI3MCIgeT0iNDUiPgo8cGF0aCBkPSJNMTAgMzBIMjBWNDBIMTBWMzBaIiBmaWxsPSIjRTY3RTIyIi8+CjxwYXRoIGQ9Ik0yNSAyNUg0NVYzNUgyNVYyNVoiIGZpbGw9IiNFNjdFMjIiLz4KPC9zdmc+Cjwvc3ZnPgo='">
+                            <img src="../assets/img/bulldozer.png" alt="Bulldozer Operation" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjRjRDNDMwIiBvcGFjaXR5PSIwLjIiLz4KPHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI3MCIgeT0iNDUiPgo8cGF0aCBkPSJNMTAgMzBIMjBWNDBIMTBWMzBaIiBmaWxsPSIjRTY3RTIyIi8+CjxwYXRoIGQ9Ik0yNSAyNUg0NVYzNUgyNVYyNVoiIGZpbGw9IiNFNjdFMjIiLz4KPC9zdmc+Cjwvc3ZnPgo='">
                             <div class="course-badge progress">IN PROGRESS</div>
                         </div>
                         <div class="course-content">
@@ -426,7 +406,7 @@ dashboard-fixed.html:65 Showing section: dashboard
                     <!-- Course Card 3 -->
                     <div class="course-card">
                         <div class="course-image">
-                            <img src="assets/img/hydraulic excavator.png" alt="Hydraulic Excavator" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjRjRDNDMwIiBvcGFjaXR5PSIwLjIiLz4KPHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI3MCIgeT0iNDUiPgo8cGF0aCBkPSJNMTUgMjVIMzVWMzVIMTVWMjVaIiBmaWxsPSIjRTY3RTIyIi8+CjxwYXRoIGQ9Ik0yMCAzMEgzMFY0MEgyMFYzMFoiIGZpbGw9IiNFNjdFMjIiLz4KPC9zdmc+Cjwvc3ZnPgo='">
+                            <img src="../assets/img/hydraulic excavator.png" alt="Hydraulic Excavator" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjRjRDNDMwIiBvcGFjaXR5PSIwLjIiLz4KPHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSI3MCIgeT0iNDUiPgo8cGF0aCBkPSJNMTUgMjVIMzVWMzVIMTVWMjVaIiBmaWxsPSIjRTY3RTIyIi8+CjxwYXRoIGQ9Ik0yMCAzMEgzMFY0MEgyMFYzMFoiIGZpbGw9IiNFNjdFMjIiLz4KPC9zdmc+Cjwvc3ZnPgo='">
                             <div class="course-badge level">LEVEL III</div>
                         </div>
                         <div class="course-content">
@@ -584,48 +564,77 @@ dashboard-fixed.html:65 Showing section: dashboard
                 </div>
                 
                 <div class="settings-container">
-                    <div class="settings-grid">
-                        <div class="settings-card">
-                            <h3><i class="bi bi-person"></i> Profile Settings</h3>
-                            <p>Update your personal information and contact details</p>
-                            <button class="settings-btn">Edit Profile</button>
-                        </div>
-                        
-                        <div class="settings-card">
-                            <h3><i class="bi bi-bell"></i> Notifications</h3>
-                            <p>Manage your notification preferences</p>
-                            <div class="toggle-group">
-                                <div class="toggle-item">
-                                    <label>Email Notifications</label>
-                                    <input type="checkbox" class="toggle-switch" checked>
-                                </div>
-                                <div class="toggle-item">
-                                    <label>SMS Notifications</label>
-                                    <input type="checkbox" class="toggle-switch">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="settings-card">
-                            <h3><i class="bi bi-shield-lock"></i> Security</h3>
-                            <p>Change password and security settings</p>
-                            <button class="settings-btn">Change Password</button>
-                        </div>
-                        
-                        <div class="settings-card">
-                            <h3><i class="bi bi-palette"></i> Appearance</h3>
-                            <p>Customize your dashboard appearance</p>
-                            <div class="theme-selector">
-                                <button class="theme-btn active" onclick="changeTheme('light')">Light</button>
-                                <button class="theme-btn" onclick="changeTheme('dark')">Dark</button>
-                            </div>
-                        </div>
+                    <div class="settings-card">
+                        <h3>Manage Your Profile</h3>
+                        <p>Update your personal information, view login history, and manage your account settings.</p>
+                        <a href="manage-profile.html" class="settings-link-btn">
+                            <i class="bi bi-arrow-right"></i> Go to Manage Profile
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="assets/js/dashboard-fixed.js"></script>
+    <script src="../assets/js/dashboard-fixed.js"></script>
+    
+    <script>
+        // Settings Functions
+        
+        // Toggle Dark Mode
+        function toggleDarkMode() {
+            const toggle = document.getElementById('darkModeToggle');
+            if (toggle.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+                console.log('Dark mode enabled');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+                console.log('Dark mode disabled');
+            }
+        }
+        
+        // Load saved theme on page load
+        window.addEventListener('load', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                if (darkModeToggle) {
+                    darkModeToggle.checked = true;
+                }
+            } else {
+                document.body.classList.remove('dark-mode');
+                if (darkModeToggle) {
+                    darkModeToggle.checked = false;
+                }
+            }
+        });
+        
+        // Edit Profile Function
+        function editProfile(event) {
+            event.preventDefault();
+            alert('Edit Profile feature coming soon!');
+            console.log('Edit Profile clicked');
+        }
+        
+        // Open Settings Function
+        function openSettings(event) {
+            event.preventDefault();
+            alert('Settings page coming soon!');
+            console.log('Settings clicked');
+        }
+        
+        // Logout Function
+        function logout() {
+            if (confirm('Are you sure you want to log out?')) {
+                alert('Logging out...');
+                // Redirect to landing page
+                window.location.href = '../public/index.html';
+            }
+        }
+    </script>
 </body>
 </html>

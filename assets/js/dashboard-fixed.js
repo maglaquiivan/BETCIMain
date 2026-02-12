@@ -480,15 +480,12 @@ function logout() {
             // Clear any stored data
             localStorage.removeItem('sidebarCollapsed');
             
-            // Redirect to login page (or show login form)
+            // Redirect to landing page
             showNotification('Logged out successfully!', 'success');
             
-            // In a real application, you would redirect to login page
-            // window.location.href = 'login.html';
-            
-            // For demo purposes, just reload the page
+            // Redirect to landing page
             setTimeout(() => {
-                window.location.href = 'index.html';
+                window.location.href = '../public/index.html';
             }, 1500);
         }, 1000);
     }
