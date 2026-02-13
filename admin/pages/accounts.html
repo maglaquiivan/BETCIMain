@@ -7,7 +7,7 @@
     <meta name="description" content="BETCI Admin - Accounts Management" />
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png" />
+    <link rel="icon" type="image/x-icon" href="../../assets/img/logo.png" />
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,21 +32,50 @@
         /* Dropdown Header */
         .accounts-dropdown-header {
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .dropdown-title {
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 20px;
+            padding: 12px 20px;
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
             transition: all 0.3s ease;
+        }
+        
+        /* Breadcrumb */
+        .page-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .page-breadcrumb .breadcrumb-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .page-breadcrumb .breadcrumb-link:hover {
+            text-decoration: underline;
+        }
+        
+        .page-breadcrumb .breadcrumb-separator {
+            color: var(--text-secondary);
+        }
+        
+        .page-breadcrumb .breadcrumb-current {
+            color: var(--text-primary);
+            font-weight: 600;
         }
 
         .dropdown-title:hover {
@@ -307,7 +336,7 @@
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo-image">
-                    <img src="../assets/img/logo.png" alt="BETCI Logo" class="sidebar-logo">
+                    <img src="../../assets/img/logo.png" alt="BETCI Logo" class="sidebar-logo">
                 </div>
                 <div class="logo-text">
                     <h3>BETCI</h3>
@@ -381,6 +410,9 @@
                 </div>
 
                 <div class="header-right">
+                    <button class="dark-mode-btn" id="darkModeBtn" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+                        <i class="bi bi-moon-fill"></i>
+                    </button>
                     <div class="user-profile">
                         <div class="user-avatar" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">A</div>
                         <span class="user-name">Admin</span>
@@ -417,7 +449,7 @@
                 <div class="accounts-dropdown-header">
                     <div class="dropdown-title">
                         <i class="bi bi-person-badge"></i>
-                        <span>Accounts</span>
+                        <span id="dropdownTitleText">Accounts</span>
                         <i class="bi bi-chevron-down dropdown-chevron"></i>
                     </div>
                     <div class="dropdown-menu-accounts">
@@ -678,9 +710,29 @@
             document.getElementById(sectionId).classList.add('active');
             event.target.closest('.dropdown-item').classList.add('active');
 
+            // Update breadcrumb
+            updateBreadcrumb(sectionId);
+
             // Close dropdown
             dropdownMenu.classList.remove('active');
             dropdownTitle.classList.remove('active');
+        }
+        
+        // Update breadcrumb function
+        function updateBreadcrumb(sectionId) {
+            const dropdownTitleText = document.getElementById('dropdownTitleText');
+            
+            const sectionNames = {
+                'manage-accounts': 'Accounts / Manage Accounts',
+                'user-roles': 'Accounts / User Roles',
+                'permissions': 'Accounts / Permissions'
+            };
+            
+            if (sectionId && sectionNames[sectionId]) {
+                dropdownTitleText.textContent = sectionNames[sectionId];
+            } else {
+                dropdownTitleText.textContent = 'Accounts';
+            }
         }
 
         // Account management functions

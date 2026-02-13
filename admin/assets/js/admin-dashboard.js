@@ -8,11 +8,37 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeMenuItems();
     setActiveMenuItemByPage();
     initializeModals();
+    initializeHamburgerMenu();
+    initializeDarkMode();
 });
 
 /* ============================================
    SIDEBAR & MENU
    ============================================ */
+
+function initializeHamburgerMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
+    
+    if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+            
+            // Store state in localStorage
+            const isCollapsed = sidebar.classList.contains('collapsed');
+            localStorage.setItem('sidebarCollapsed', isCollapsed);
+        });
+        
+        // Restore sidebar state from localStorage
+        const sidebarCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+        if (sidebarCollapsed) {
+            sidebar.classList.add('collapsed');
+            mainContent.classList.add('expanded');
+        }
+    }
+}
 
 function initializeSidebar() {
     const menuItems = document.querySelectorAll('.sidebar-menu-item');
@@ -466,4 +492,37 @@ function showCompetencies(event) {
         item.classList.remove('active');
     });
     event.target.closest('.nav-submenu-link').classList.add('active');
+}
+
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+
+function initializeDarkMode() {
+    const darkMode = localStorage.getItem('darkMode') === 'true';
+    const darkModeBtn = document.getElementById('darkModeBtn');
+    
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+        if (darkModeBtn) {
+            darkModeBtn.innerHTML = '<i class="bi bi-sun-fill"></i>';
+        }
+    }
+}
+
+function toggleDarkMode() {
+    const isDark = document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', isDark);
+    
+    const darkModeBtn = document.getElementById('darkModeBtn');
+    if (darkModeBtn) {
+        darkModeBtn.innerHTML = isDark ? '<i class="bi bi-sun-fill"></i>' : '<i class="bi bi-moon-fill"></i>';
+    }
+    
+    // Update settings page toggle if it exists
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    if (darkModeToggle) {
+        darkModeToggle.checked = isDark;
+    }
 }

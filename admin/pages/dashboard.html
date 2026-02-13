@@ -7,7 +7,7 @@
     <meta name="description" content="BETCI Admin Dashboard" />
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png" />
+    <link rel="icon" type="image/x-icon" href="../../assets/img/logo.png" />
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +29,7 @@
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo-image">
-                    <img src="../assets/img/logo.png" alt="BETCI Logo" class="sidebar-logo">
+                    <img src="../../assets/img/logo.png" alt="BETCI Logo" class="sidebar-logo">
                 </div>
                 <div class="logo-text">
                     <h3>BETCI</h3>
@@ -61,25 +61,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="javascript:void(0);" class="nav-link nav-toggle" onclick="toggleTrainingCatalog(event)">
+                        <a href="training-catalog.html" class="nav-link">
                             <i class="bi bi-book"></i>
                             <span>Training Catalog</span>
-                            <i class="bi bi-chevron-down nav-chevron"></i>
                         </a>
-                        <ul class="nav-submenu" id="trainingSubmenu">
-                            <li class="nav-item">
-                                <a href="courses.html" class="nav-link nav-submenu-link">
-                                    <i class="bi bi-mortarboard"></i>
-                                    <span>Courses</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="competencies.html" class="nav-link nav-submenu-link">
-                                    <i class="bi bi-star"></i>
-                                    <span>Competencies</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="nav-item">
                         <a href="appointments.html" class="nav-link">
@@ -117,6 +102,9 @@
                     </button>
                 </div>
                 <div class="header-right">
+                    <button class="dark-mode-btn" id="darkModeBtn" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+                        <i class="bi bi-moon-fill"></i>
+                    </button>
                     <div class="user-profile" id="userProfile">
                         <div class="user-avatar">
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -127,7 +115,7 @@
                                 </svg>
                             </svg>
                         </div>
-                        <span class="user-name">KELI</span>
+                        <span class="user-name">Admin</span>
                         <i class="bi bi-chevron-down dropdown-arrow"></i>
                         
                         <!-- User Dropdown Menu -->
