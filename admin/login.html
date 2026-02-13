@@ -19,6 +19,7 @@
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/core.css" rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="../assets/css/login.css" rel="stylesheet">
@@ -127,7 +128,7 @@
             <button type="submit" class="btn-signin btn-admin">Sign In as Admin</button>
 
             <div class="back-home">
-              <a href="../public/index.html">← Back to Home</a>
+              <a href="../../public/index.html">← Back to Home</a>
             </div>
           </form>
         </div>
@@ -188,7 +189,7 @@
 
           console.log('Admin login attempt:', { email, password });
           alert('Admin login successful! Redirecting to dashboard...');
-          window.location.href = './dashboard.html';
+          window.location.href = './pages/dashboard.html';
         });
       }
     });
