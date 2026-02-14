@@ -3,6 +3,11 @@
 --------------------------------------------------------------*/
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Check URL parameters for course pre-selection
+  const urlParams = new URLSearchParams(window.location.search);
+  const courseParam = urlParams.get('course');
+  const tabParam = urlParams.get('tab');
+
   // Tab switching functionality
   const tabButtons = document.querySelectorAll('.tab-btn');
   const tabContents = document.querySelectorAll('.tab-content');
@@ -20,6 +25,28 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById(tabName + '-tab').classList.add('active');
     });
   });
+
+  // If tab parameter exists, switch to that tab
+  if (tabParam === 'register') {
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    tabContents.forEach(content => content.classList.remove('active'));
+    
+    const registerBtn = document.querySelector('[data-tab="register"]');
+    const registerTab = document.getElementById('register-tab');
+    
+    if (registerBtn && registerTab) {
+      registerBtn.classList.add('active');
+      registerTab.classList.add('active');
+    }
+  }
+
+  // If course parameter exists, pre-select the course
+  if (courseParam) {
+    const courseSelect = document.getElementById('register-course');
+    if (courseSelect) {
+      courseSelect.value = courseParam;
+    }
+  }
 
   // Form submission handlers
   const loginForm = document.querySelector('#login-tab .login-form');
